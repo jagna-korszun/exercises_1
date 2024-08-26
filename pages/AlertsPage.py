@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import time
 
 class AlertsPage:
     
@@ -49,6 +48,6 @@ class AlertsPage:
         return alert_text
     def accept_alert(self):
         wait = WebDriverWait(self.driver, 2)
-        alert = wait.until(EC.alert_is_present()) # trochę koślawe, że dea razy sprawdzam, czy jest alert
+        alert = wait.until(EC.alert_is_present()) # trochę koślawe, że dwa razy sprawdzam, czy jest alert
         alert.accept()
     
