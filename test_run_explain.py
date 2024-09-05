@@ -1,9 +1,10 @@
 from pages.BasicWebPageExample import BasicWebPageExample
 from pages.AttributesPage import AttributesPage
 from pages.DynamicTablePage import DynamicTablePage
+from pages.AlertsPage import AlertsPage
 import pytest
 
-@pytest.mark.parametrize('page_type',[BasicWebPageExample, AttributesPage, DynamicTablePage])
+@pytest.mark.parametrize('page_type',[BasicWebPageExample, AttributesPage, DynamicTablePage, AlertsPage])
 def test_run_explain(driver, page_type):
     
     #given

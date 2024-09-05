@@ -67,7 +67,7 @@ class DynamicTablePage:
     
     def refresh_click(self):
         button = self.get_button()
-        self.driver.execute_script("var ele = arguments[0];ele.addEventListener('click', function() {ele.setAttribute('automationTrack','true');});",button)
+        self.driver.execute_script("var ele = arguments[0];ele.addEventListener('click', function() {ele.setAttribute('automationTrack','true');});", button)
         WebDriverWait(self.driver,200).until(EC.element_to_be_clickable(button)).click()
         
     def is_clicked(self):
