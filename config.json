@@ -1,4 +1,4 @@
 {
-    "driver": "Chrome",
+    "driver": "Edge",
     "implicit_wait": 0
 }

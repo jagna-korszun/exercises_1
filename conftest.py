@@ -3,11 +3,11 @@ import selenium.webdriver
 import json
 
 @pytest.fixture
-def config(scope='session'): # czy mam zmienić jak będę chciała różne przeglądarki?
+def config(scope='session'):
     
     with open('config.json') as config_json:
         config = json.load(config_json)
-        
+    
     assert config['driver'] in ['Chrome', 'Firefox', 'Edge']
     
     return config

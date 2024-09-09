@@ -6,10 +6,10 @@ class AlertsPage:
     
     def __init__(self, driver):
         self.driver = driver
-        
+    
     url = 'https://testpages.eviltester.com/styled/alerts/alert-test.html'
-        
-    #locators
+    
+    # locators
     explanation = (By.CLASS_NAME, 'explanation')
     alert_button = (By.ID, 'alertexamples')
     confirm_button = (By.ID, 'confirmexample')
@@ -21,7 +21,7 @@ class AlertsPage:
     confirm_return = (By.ID, 'confirmreturn')
     prompt_return = (By.ID, 'promptreturn')
     
-    #selectors
+    # selectors
     def get_url(self):
         return self.driver.current_url
     def get_explanation(self):
@@ -53,7 +53,7 @@ class AlertsPage:
     def get_prompt_count(self):
         return self.driver.find_element(*self.prompt_return).get_attribute('data-use-count')
     
-    #actions
+    # actions
     def load(self):
         self.driver.get(self.url)
     def click_alert_btn(self):
@@ -65,14 +65,14 @@ class AlertsPage:
     def click_prompt_btn(self):
         button = self.get_prompt_button()
         WebDriverWait(self.driver,200).until(EC.element_to_be_clickable(button)).click()
-    def get_alert_text(self):
-        wait = WebDriverWait(self.driver, 5)
+    def get_alert_text(self):  # I think this counts as an action and not selector but I am not sure.
+        wait = WebDriverWait(self.driver, 2)
         alert = wait.until(EC.alert_is_present())
         alert_text = alert.text
         return alert_text
     def accept_alert(self):
         wait = WebDriverWait(self.driver, 2)
-        alert = wait.until(EC.alert_is_present()) # trochę koślawe, że dwa razy sprawdzam, czy jest alert
+        alert = wait.until(EC.alert_is_present())  # It seems redundant to check for the alert being present twice. Is this approach correct?
         alert.accept()
     def dismiss_alert(self):
         wait = WebDriverWait(self.driver, 2)
